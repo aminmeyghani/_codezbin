@@ -8,7 +8,8 @@
 	<script type="text/javascript" src="highlighter/scripts/shBrushRuby.js"></script>
 	<script type="text/javascript" src="highlighter/scripts/shBrushBash.js"></script>
 	<script type="text/javascript" src="highlighter/scripts/shBrushRuby.js"></script>
-	<script type="text/javascript" src="highlighter/scripts/shBrushSql.js"></script>	
+	<script type="text/javascript" src="highlighter/scripts/shBrushSql.js"></script>
+	<script type="text/javascript" src="highlighter/scripts/shBrushJScript.js"></script>
 	<script src="kitzbin/js/tree.js" type="text/javascript"></script>
 	<link type="text/css" rel="stylesheet" href="highlighter/styles/shCoreFadeToGrey.css"/>
 	<script type="text/javascript">SyntaxHighlighter.all();</script>
