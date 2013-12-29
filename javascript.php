@@ -133,6 +133,75 @@
 			</div><!--end snippet-->
 		</li><!--end :) -->
 
+		<li><a href="#" class="snippet-trigger">Inheritance in JavaScript</a>
+		<div class="snippet">
+			<pre class="brush: javascript;">
+				/****************** AM ****************************
+					Creating the constructor function
+				**************************************************/
+				/*AM: This creates the generic constructore
+				for the account type. so then later other
+				accounts will inherit from it.
+				*/
+				var Account = function(type, number, name, amount) {
+				    this._type = type;
+				    this._number = number;
+				    this._name = name;
+				    this._amount = amount;
+				}
+				/****************** AM ****************************
+					The amount method on the account super class.
+				**************************************************/
+				/*AM: Prints the total amount in the bacnk. The account
+				could be of any type.
+				*/
+				//TODO: later it should print out the tpy eof the aoccunt
+				// thta tit is .
+				Account.prototype.information = function() {
+				    console.log(" The type of this account is: " + this._type);
+				    console.log(" Account #: " + this._number);
+				    console.log(" Total avaialble amount :  " + this._amount);
+				    console.log(" Name of the account is : " + this._name);
+				    console.log("**************");
+				};
+				/****************** AM ****************************
+					Creating an instance of the account usning the call
+					method
+				**************************************************/
+				//TODO: a better way of doing the input arguemnts would
+				// be to pass the parameters in an object after this.
+				var Savings = function(number, name, amount) {
+				    Account.call(
+				        this,
+				        "Savings",
+				        number || "#0",
+				         name || "Generic Saving Account Name",
+				        amount || "defualt intial value : 1000"
+				    );
+				};
+				var Checkings = function(number, name, amount) {
+				    Account.call(this, "Checkings", number, name, amount);
+				};
+				/****************** AM ****************************
+					Setting up the relationship between the account
+					and the savings account and the other account
+				**************************************************/
+				Savings.prototype = Object.create(Account.prototype);
+				Checkings.prototype = Object.create(Account.prototype);
+				/****************** AM ****************************
+					Creating an instance of the savings account and
+					checking account 	and calling the method on it
+				**************************************************/
+				// inherints the amount vale from the constructor of the super class.
+				var mySavings = new Savings();
+				// ****note the diffence between the constructores for each of the accounts.
+				var myChecking = new Checkings("55889979", "My Checking account Account", "500");
+				mySavings.information();
+				myChecking.information();
+			</pre>
+			</div><!--end snippet-->
+		</li><!--end :) -->
+
 		</ul><!--end snippet container-->
 	<div id="footer"></div><!--end footer-->
 
