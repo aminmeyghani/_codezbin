@@ -62,6 +62,7 @@
 			</div><!--end snippet-->
 		</li><!--end :) -->
 
+
 		<li><a href="#" class="snippet-trigger">Show results in a manageable manner</a>
 		<div class="snippet">
 			<pre class="brush: shell;">
@@ -88,3 +89,4 @@
 </div><!--end content-->
 </body>
 </html>
+<!-- end html -->
