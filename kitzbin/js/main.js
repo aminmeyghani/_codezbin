@@ -7,7 +7,7 @@ var active_bg_class = "snippet_trigger_bg_active";
 var active_trigger_class = "snippet_trigger_active";
 var collapse_time;
 var slide_toggle_time;
-var auto_expand_boolean = 1;
+var auto_expand_boolean = 0;
 
 
 $(function(){
@@ -52,25 +52,25 @@ $("#expand_collapse").click(run_trig_collapse);
 
 }
 function run_trigger(){
-	$(this).toggleClass(active_toggler_boolean); 
+	$(this).toggleClass(active_toggler_boolean);
 	$(this).siblings().slideToggle(slide_toggle_time);
 
-	
+
 	$(this).contents().last().remove();
 	$(this).append(($(this).hasClass(active_toggler_boolean) ? ' ▾' : ' ▸'));
-	
+
 	$(this).parent().toggleClass(active_bg_class);
-	$(this).toggleClass(active_trigger_class);	
-	
+	$(this).toggleClass(active_trigger_class);
+
 	return false;
 }
 function run_trig_collapse(){
 	toggle_expand_switch();
-	
+
 	if($("#expand_collapse").hasClass(active_toggler_boolean)){
 
 
-		
+
 				set_trig_collapse_text("Collapse all (-)");
 				change_arrow_for_all_snippets(" ▾");
 				add_active_trigger_class();
@@ -78,7 +78,7 @@ function run_trig_collapse(){
 				make_snippets_bgs_active();
 				$(".snippet-trigger").addClass(active_toggler_boolean);
 
-			
+
 		}else{
 
 
@@ -90,8 +90,8 @@ function run_trig_collapse(){
 				slide_up_snippets(collapse_time);
 				$(".snippet-trigger").removeClass(active_toggler_boolean);
 
-				
-		
+
+
 	}
 		return false;
 }
@@ -111,9 +111,9 @@ function make_snippet_bgs_inactive(){
 	$(".snippet-trigger").parent().removeClass(active_bg_class);
 }
 function toggle_expand_switch(){
-	$("#expand_collapse").toggleClass(active_toggler_boolean); 
+	$("#expand_collapse").toggleClass(active_toggler_boolean);
 
- 
+
 }
 function set_trig_collapse_text(text){
 	$("#expand_collapse").text(text);
@@ -126,7 +126,7 @@ $(".snippet-trigger").each(function(index) {
 	    $(this).contents().last().remove();
 	    $(this).append(arrow);
 	});
-	
+
 }
 function slide_down_snippets(time){
 	$(".snippet-trigger").siblings().slideDown(time);
@@ -143,10 +143,10 @@ function home_welcome(){
 	progress_meter("snippet_material_progress",10,1500);
 	progress_meter("writing_dbs",30,1500);
 	progress_meter("overall_progress",20,800);
-	
+
 	animate_dots("progress",5,500,50);
 	animate_dots("progressoff",10,500,50);
-	
+
 }
 function animate_in_content_with_delay(class_name,to_wait,fadeIn_time){
 $("."+class_name).hide();
@@ -199,10 +199,10 @@ function collapse_all_change_page() {if(!(is_home())) {
          make_trigger_color_inactive();
          	$(".snippet-trigger").siblings().slideUp(collapse_time,redirectPage);
          $(".snippet-trigger").removeClass(active_toggler_boolean);
-         
+
      });
-          
-    
+
+
 }}
 function redirectPage() {
      window.location = linkLocation;
@@ -215,9 +215,9 @@ function fadeoutpagecontentonclikc(){
 $("a.topnav").click(function(event){
      event.preventDefault();
      linkLocation = this.href;
-     $(".maincontent").fadeOut(300, redirectPage);      
+     $(".maincontent").fadeOut(300, redirectPage);
  });
-      
+
  function redirectPage() {
      window.location = linkLocation;
  }
@@ -250,7 +250,7 @@ alert( $(this).text() );
 
 
 }
-*/ 
+*/
 
 
 
