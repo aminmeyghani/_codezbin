@@ -74,20 +74,9 @@
 			#or at any point you can hit esc to stop it.</pre>
 			</div><!--end snippet-->
 		</li><!--end :) -->
-
-
-
-
-
-
-
 		</ul><!--end snippet container-->
-
-
 	<div id="footer"></div><!--end footer-->
 
 </div><!--end content-->
 </body>
 </html>
-<!-- end html -->
-<!-- another tset -->
