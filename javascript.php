@@ -102,6 +102,37 @@
 		</li><!--end :) -->
 
 
+		<li><a href="#" class="snippet-trigger">Dynamic Method Call</a>
+		<div class="snippet">
+			<pre class="brush: javascript;">
+				/****************** AM ****************************
+				    Dynamic Method Call
+				**************************************************/
+				var server = {
+				    restart: function () {
+				        console.log("Restarting the server");
+				    },
+				    off: function (){
+				        console.log("Shutting off the server");
+				    },
+				    doNothing : function () {
+				        console.log("doing nothing");
+				    }
+				}
+
+				function canTurnOffServer () {
+				    return true;
+				}
+				function canRestartServer () {
+				    return false;
+				}
+
+
+				server [  canRestartServer() ? 'restart'  :   canTurnOffServer()   ?  'off' : 'doNothing'](); // -> Shutting off the server.
+			</pre>
+			</div><!--end snippet-->
+		</li><!--end :) -->
+
 		</ul><!--end snippet container-->
 	<div id="footer"></div><!--end footer-->
 
