@@ -188,6 +188,17 @@
 				**************************************************/
 				Savings.prototype = Object.create(Account.prototype);
 				Checkings.prototype = Object.create(Account.prototype);
+
+				/****************** AM ****************************
+				    overriding the information method that is
+				    defined in the super class, and we are overridnig
+				    in the subclass.
+				**************************************************/
+				Savings.prototype.information = function(){
+				    console.log("Overriden method of the super class: ");
+				    console.log("Type of account: " + this._type);
+				    console.log("-----------------");
+				}
 				/****************** AM ****************************
 					Creating an instance of the savings account and
 					checking account 	and calling the method on it
