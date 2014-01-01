@@ -80,13 +80,27 @@
 			</div><!--end snippet-->
 		</li><!--end :) -->
 
-		<li><a href="#" class="snippet-trigger">Download a site with wget</a>
+		<li><a href="#" class="snippet-trigger">Download Entire Site with wget</a>
 		<div class="snippet">
 			<pre class="brush: shell;">
 			wget --mirror -p --convert-links -P /addressOfFolder/tosave http://something.com
 		</pre>
 			</div><!--end snippet-->
 		</li><!--end :) -->
+
+		<li><a href="#" class="snippet-trigger">Wget snippet to download a single page</a>
+		<div class="snippet">
+			<pre class="brush: shell;">
+				#Downloads all the other folders
+			wget -E -H -k -K -p -e robots=off --adjust-extension --span-hosts --convert-links --backup-converted --page-requisites http://somesite.com
+			# Sometimes just the simple -O option works just fine.
+			wget -O nameYourFile.html http://somesite.com
+		</pre>
+			</div><!--end snippet-->
+		</li><!--end :) -->
+
+
+
 
 
 
