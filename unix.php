@@ -80,6 +80,16 @@
 			</div><!--end snippet-->
 		</li><!--end :) -->
 
+		<li><a href="#" class="snippet-trigger">Download a site with wget</a>
+		<div class="snippet">
+			<pre class="brush: shell;">
+			wget --mirror -p --convert-links -P /addressOfFolder/tosave http://something.com
+		</pre>
+			</div><!--end snippet-->
+		</li><!--end :) -->
+
+
+
 		</ul><!--end snippet container-->
 
 	<div id="footer"></div><!--end footer-->
