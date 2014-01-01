@@ -9,6 +9,7 @@
 
 	<ul class="snippet_container">
 
+		<p class="info"  ng-class="isGone ? 'hide' : ''  ">See more of <a href="http://ss64.com/osx/syntax-bashkeyboard.html" title="Bash-Emacs Keyboard Shortcuts">Bash Keyboard Shorcuts</a> at ss64.com <span ng-click="dismiss()" class="xmark"></span> </p>
 		<li><a href="#" class="snippet-trigger">Go to the beginning of line</a>
 		<div class="snippet">
 			<pre class="brush: shell;">
