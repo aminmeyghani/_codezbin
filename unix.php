@@ -73,7 +73,7 @@
 			# In this example, the first part is the destination
 			# and the second part is the source. So sublime will point to
 			# the long name folder
-			ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/" /usr/local/bin/sublime
+			ln -s "/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
 			# if you have a link there already you can remove it:
 			rm  /usr/local/bin/sublime
 		</pre>
