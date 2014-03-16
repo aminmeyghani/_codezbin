@@ -213,6 +213,127 @@
 			</div><!--end snippet-->
 		</li><!--end :) -->
 
+		<li><a href="#" class="snippet-trigger">Dependency Injection</a>
+		<div class="snippet">
+			<pre class="brush: javascript;">
+				/****************** AM ****************************
+				http://stackoverflow.com/questions/20058391/javascript-dependency-injection
+				http://merrickchristensen.com/articles/javascript-dependency-injection.html
+				**************************************************/
+				var Injector = {
+				   dependencies: {},
+				   add : function(qualifier, obj){
+				      this.dependencies[qualifier] = obj; 
+				   },
+				   get : function(func){
+				      var obj = new func;
+				      var dependencies = this.resolveDependencies(func);
+				      func.apply(obj, dependencies);
+				      return obj;
+				   },
+				   resolveDependencies : function(func) {
+				      var args = this.getArguments(func);
+				      var dependencies = [];
+				      for ( var i = 0; i < args.length; i++) {
+				         dependencies.push(this.dependencies[args[i]]);
+				      }
+				      return dependencies;
+				   },
+				   getArguments : function(func) {
+				      //This regex is from require.js
+				      var FN_ARGS = /^function\s*[^\(]*\(\s*([^\)]*)\)/m;
+				      var args = func.toString().match(FN_ARGS)[1].split(',');
+				      return args;
+				   }
+				};
+			</pre>
+			</div><!--end snippet-->
+		</li><!--end :) -->
+
+		<li><a href="#" class="snippet-trigger">Simple jQuery Overlay Plugin</a>
+		<div class="snippet">
+			<pre class="brush: javascript;">
+				/****************** AM ****************************
+					Overlay (loader)
+					Usage:
+					--------
+					Quovo.overlay.remove();
+					Quovo.overlay.add([optional options object] );
+					You don't have to pass the object paramter or all
+					of the options.
+					--------
+					Optional options:
+					content : jQuery object (eg:  {content : $("<p>The elements ...</p>")  }),
+					the html element  or anything else to be added as the content of the overlay.
+					opacity : int, the opacity value between 0 and 100.
+					fadeDuration : int, the fadeIn and fadeOut fadeDuration in miliseconds
+					--------
+					Examples:
+					Adding the overlay using all of the options:
+						Quovo.overlay.add({ content : $("<p>The elements ...</p>"), opacity : 50, fadeDuration : 200});
+					Adding Example using just the content option:
+						Quovo.overlay.add({content : $("<p>The elements ...</p>")  });
+					Removing Example:
+						Quovo.overlay.remove();
+				**************************************************/
+				,overlay:(function(){
+					var DEFAULTS = {
+						duration : 200,
+						opacity : 70,
+						extraWidth : (Context.isManager ? 20 : 0),
+						content : $("<div><span id='overlayUpdateText'></span> </div>")
+					};
+					function add(opt){
+						options = _.extend(DEFAULTS , opt);
+						var target = $('.module-overlay-area');
+						var overlayWidth = target.outerWidth() + options.extraWidth;
+						// var overlayWidth = target.width() + options.extraWidth;
+						var olay = $('.overlay');
+						// var flex = $('.module-overlay-area').parent();
+			      if( !olay.length ){
+				     	//insertion:
+							var overlay = $(
+								'<div class="overlay" style="width:'+ overlayWidth +'px">\
+								<article class="loader"><img src="/img/loading.gif"><br></article></div>')
+							.children('.loader').append(options.content ).end()
+							.css('opacity', (options.opacity/100)) // try catch maybe?
+							.hide().appendTo(target).fadeIn(options.duration);
+							// if (flex) overlay.outerHeight(flex.outerHeight());
+						}
+						$( window ).resize(function() {
+						  try{
+						  	overlay.outerWidth(target.outerWidth()+options.extraWidth);
+						  	// overlay.outerWidth(target.width()+options.extraWidth);
+						  }catch(e){
+						  	// console.log(e.message);
+						  }
+						  // try{
+						  //   if (flex) { overlay.outerHeight(flex.outerHeight()); }
+						  // }catch(e){
+						  // 	// console.log(e.message);
+						  // }
+						});
+					}
+					//update overlay text
+					function text(str){
+						d3.select('#overlayUpdateText').text(str);
+					}
+					function remove(){
+						if (typeof(options) == 'undefined'){ return; }
+						$('.overlay').fadeOut(options.duration, function () {
+							$(this).remove();
+						});
+					}
+					return {
+						add : add,
+						text: text,
+						remove: remove
+					}
+				})()
+			</pre>
+			</div><!--end snippet-->
+		</li><!--end :) -->
+
 		</ul><!--end snippet container-->
 	<div id="footer"></div><!--end footer-->
 
